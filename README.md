@@ -12,14 +12,18 @@ The Packer template in this directory creates a CoreOS AMD64 image for use with 
 $ ./0-getbaseimage.sh
 ```
 
-## Building the custom MaaS image
+## Building the Base Centos MaaS image
 ```
 $ ./1-buildimage.sh
+```
+## Building the custom Centos+ AI-Discovery MaaS image
+```
+$ ./2-skunkworximagebuild.sh
 ```
 
 ## Uploading an image to MAAS
 ```
-$ ./2-uploadimage.sh*
+$ ./5-uploadimage.sh*
 ```
 
 ## Default SSH Username

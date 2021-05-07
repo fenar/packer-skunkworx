@@ -24,7 +24,7 @@ $ ./2-skunkworximagebuild.sh
 
 ## (3) Uploading an image to MAAS
 ```
-$ ./3-uploadimage.sh*
+$ ./3-uploadimage.sh
 ```
 
 ## Default SSH Username

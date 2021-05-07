@@ -17,6 +17,7 @@ $ ./0-getbaseimage.sh
 $ ./1-buildimage.sh
 ```
 ## Building the custom [Centos+AI-Discovery] MaaS image
+Download your AI Discovery image under /iso folder with discovery_image.iso name. <br>
 ```
 $ ./2-skunkworximagebuild.sh
 ```

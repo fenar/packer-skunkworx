@@ -16,7 +16,7 @@ $ ./0-getbaseimage.sh
 ```
 $ ./1-buildimage.sh
 ```
-## Building the custom Centos+ AI-Discovery MaaS image
+## Building the custom [Centos+AI-Discovery] MaaS image
 ```
 $ ./2-skunkworximagebuild.sh
 ```

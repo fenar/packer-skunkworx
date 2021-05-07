@@ -12,7 +12,7 @@ The Packer template in this directory creates a CoreOS AMD64 image for use with 
 $ ./0-getbaseimage.sh
 ```
 
-## Building the Base Centos MaaS image
+## Building the [Centos] MaaS image
 ```
 $ ./1-buildimage.sh
 ```

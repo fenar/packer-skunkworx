@@ -12,7 +12,7 @@ The Packer template in this directory creates a CoreOS AMD64 image for use with 
 $ ./0-getbaseimage.sh
 ```
 
-## Building an image
+## Building the custom MaaS image
 ```
 $ ./1-buildimage.sh
 ```

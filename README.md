@@ -1,7 +1,7 @@
 # AI Installer Discovery Image Builder for MAAS
 
 ## Introduction
-The Packer template in this directory creates a CoreOS AMD64 image for use with MAAS.
+The Packer template in this directory creates a CoreOS based AMD64 image for use with MAAS.
 
 ## Prerequisites (to create the image)
 * qemu-utils

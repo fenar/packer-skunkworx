@@ -5,7 +5,7 @@ The Packer template in this directory creates a CoreOS AMD64 image for use with 
 
 ## Prerequisites (to create the image)
 * qemu-utils
-* [Packer](https://www.packer.io/intro/getting-started/install.html)
+* packer
 
 ## Getting the Base Image
 ```

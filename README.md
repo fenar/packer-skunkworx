@@ -1,4 +1,4 @@
-# AI Installer Discovery Imahe Packer Template for MAAS
+# AI Installer Discovery Image Builder for MAAS
 
 ## Introduction
 The Packer template in this directory creates a CoreOS AMD64 image for use with MAAS.

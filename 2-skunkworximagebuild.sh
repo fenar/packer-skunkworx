@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #Author: fenar
-
 tar xvf -C iso/coreos.tar.gz skunkworx
 current-dir=pwd
 cd skunkworx

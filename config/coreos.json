@@ -1,0 +1,56 @@
+{
+    "variables": {
+        "coreos_iso_path": "{{env `COREOS_ISO_PATH`}}"
+    },
+    "builders": [
+        {
+            "type": "qemu",
+            "communicator": "none",
+            "iso_url": "{{user `coreos_iso_path`}}",
+            "iso_checksum": "none",
+            "boot_command": [
+                "<up><tab> ",
+                "inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/coreos.ks ",
+                "console=ttyS0 inst.cmdline",
+                "<enter>"
+            ],
+            "boot_wait": "3s",
+            "disk_size": "4G",
+            "headless": true,
+            "memory": 4096,
+            "cpus": 2,
+            "http_directory": "http",
+            "qemuargs": [
+                [ "-serial", "stdio" ]
+            ],
+            "shutdown_timeout": "30m"
+        }
+    ],
+    "post-processors": [
+    {
+      "inline": [
+        "TMP_DIR=$(mktemp -d /tmp/packer-maas-XXXX)",
+        "echo 'Mounting image...'",
+        "sudo modprobe nbd max_part=16",
+        "sudo qemu-nbd -d /dev/nbd4",
+        "sudo qemu-nbd -c /dev/nbd4 -n output-qemu/packer-qemu",
+        "sudo partprobe /dev/nbd4",
+        "echo 'Waiting for partitions to be created...'",
+        "tries=0",
+        "while [ ! -e /dev/nbd4p1 -a $tries -lt 60 ]; do",
+        "    sleep 1",
+        "    tries=$((tries+1))",
+        "done",
+        "sudo mount /dev/nbd4p1 $TMP_DIR",
+        "echo 'Tarring up image...'",
+        "sudo tar -Sczpf iso/coreos.tar.gz --selinux -C $TMP_DIR .",
+        "echo 'Unmounting image...'",
+        "sudo umount $TMP_DIR",
+        "sudo qemu-nbd -d /dev/nbd4",
+        "sudo rmdir $TMP_DIR"
+      ],
+      "inline_shebang": "/bin/bash -e",
+      "type": "shell-local"
+    }
+  ]
+}

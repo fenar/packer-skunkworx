@@ -6,8 +6,7 @@ ignoredisk --only-use=vda
 lang en_US.UTF-8
 keyboard us
 network --device eth0 --bootproto=dhcp
-firewall --enabled --service=ssh
-selinux --enforcing
+selinux --permissive
 timezone UTC --isUtc
 bootloader --location=mbr --driveorder="vda" --timeout=1
 rootpw --plaintext password
